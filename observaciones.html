@@ -173,7 +173,8 @@
                 const datos = new FormData(form);
                 fetch(API_BASE + '/guardar', {
                     method: 'POST',
-                    body: datos
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(datos)
                 })
                     .then(function (r) { return r.json(); })
                     .then(function (res) {
