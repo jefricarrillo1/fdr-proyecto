@@ -1,0 +1,1860 @@
+/* =========================================================
+   INSTITUTO FRANKLIN DELANO ROOSEVELT
+   ACTIVIDADES RECREATIVAS
+   ESTILO: ELEGANTE + MODERNO + LIMPIO (Adaptado al Logo)
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES (Actualizadas con los tonos exactos del escudo: 
+   Azul bandera, Dorado/Bronce institucional y tonos limpios)
+   ========================================================= */
+
+:root {
+
+    --azul-profundo: #0E3B66;
+    --azul: #13528A;
+    --azul-medio: #1D6FA5;
+    --azul-claro: #E6F0FA;
+
+    --azul-seccion: #D9EAF7;
+    --azul-seccion-2: #EAF3FB;
+
+    --dorado: #C29B38;
+    --dorado-claro: #E3C16B;
+    --dorado-suave: #F7EFCF;
+
+    --blanco: #FFFFFF;
+    --blanco-suave: #F8FAFC;
+
+    --gris-texto: #4A5868;
+    --gris-claro: #DFE7ED;
+
+    --oscuro: #122230;
+
+    --sombra:
+        0 10px 30px rgba(14, 59, 102, 0.12);
+
+    --sombra-hover:
+        0 20px 45px rgba(14, 59, 102, 0.20);
+
+    --radio: 18px;
+}
+
+
+/* =========================================================
+   REINICIO
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #F8FAFC 0%,
+            #FFFFFF 100%
+        );
+
+    color: var(--oscuro);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================= */
+
+::selection {
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--blanco);
+}
+
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 24px;
+}
+
+
+/* =========================================================
+   HEADER PRINCIPAL
+   ========================================================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    border-bottom:
+        2px solid
+        rgba(194, 155, 56, 0.35);
+
+    box-shadow:
+        0 5px 25px
+        rgba(14, 59, 102, 0.10);
+
+    backdrop-filter:
+        blur(15px);
+
+    animation:
+        entradaHeader
+        0.8s
+        ease
+        both;
+}
+
+
+@keyframes entradaHeader {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HEADER
+   ========================================================= */
+
+.header-inner {
+
+    max-width: 1200px;
+
+    min-height: 78px;
+
+    margin: auto;
+
+    padding:
+        0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   NOMBRE DEL INSTITUTO
+   ========================================================= */
+
+.site-title {
+
+    position: relative;
+
+    color:
+        var(--azul-profundo);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+
+    text-decoration:
+        none;
+
+    white-space:
+        nowrap;
+
+    transition:
+        all 0.4s ease;
+}
+
+
+.site-title::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        32px;
+
+    height:
+        3px;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--dorado);
+
+    transition:
+        all 0.4s ease;
+}
+
+
+.site-title:hover {
+
+    color:
+        var(--azul-medio);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.site-title:hover::after {
+
+    width:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            var(--dorado-claro)
+        );
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+.main-nav ul {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    list-style:
+        none;
+}
+
+
+.main-nav a {
+
+    position:
+        relative;
+
+    display:
+        block;
+
+    padding:
+        10px 16px;
+
+    color:
+        var(--gris-texto);
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.92rem;
+
+    font-weight:
+        600;
+
+    border-radius:
+        10px;
+
+    transition:
+        all 0.35s ease;
+}
+
+
+.main-nav a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        4px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--dorado);
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.35s ease;
+}
+
+
+.main-nav a:hover {
+
+    color:
+        var(--azul-profundo);
+
+    background:
+        var(--azul-claro);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.main-nav a:hover::after {
+
+    width:
+        45%;
+}
+
+
+.main-nav a.active {
+
+    color:
+        var(--azul-profundo);
+
+    background:
+        var(--dorado-suave);
+
+    font-weight:
+        700;
+}
+
+
+.main-nav a.active::after {
+
+    width:
+        45%;
+}
+
+
+/* =========================================================
+   ENCABEZADO PRINCIPAL
+   ========================================================= */
+
+.page-header {
+
+    position:
+        relative;
+
+    min-height:
+        470px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    padding:
+        75px 20px 70px;
+
+    overflow:
+        hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(29, 111, 165, 0.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(194, 155, 56, 0.12),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #FFFFFF,
+            #F1F7FB
+        );
+
+    border-bottom:
+        1px solid
+        rgba(14, 59, 102, 0.08);
+}
+
+
+/* =========================================================
+   DECORACIÓN DEL ENCABEZADO
+   ========================================================= */
+
+.page-header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        350px;
+
+    height:
+        350px;
+
+    left:
+        -180px;
+
+    top:
+        -170px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(19, 82, 138, 0.07);
+
+    animation:
+        circuloAzul
+        8s
+        ease-in-out
+        infinite;
+}
+
+
+.page-header::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        250px;
+
+    height:
+        250px;
+
+    right:
+        -120px;
+
+    bottom:
+        -120px;
+
+    border-radius:
+        50%;
+
+    border:
+        35px solid
+        rgba(194, 155, 56, 0.08);
+
+    animation:
+        circuloDorado
+        7s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes circuloAzul {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(35px, 25px);
+    }
+
+    100% {
+        transform:
+            translate(0, 0);
+    }
+}
+
+
+@keyframes circuloDorado {
+
+    0% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+
+    100% {
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   CONTENIDO DEL ENCABEZADO
+   ========================================================= */
+
+.page-header > * {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+/* =========================================================
+   NOMBRE DEL COLEGIO
+   ========================================================= */
+
+.school-name {
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--dorado);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2.5px;
+
+    text-transform:
+        uppercase;
+
+    animation:
+        nombreEntrada
+        1s
+        ease
+        both,
+
+        nombreMovimiento
+        5s
+        ease-in-out
+        1s
+        infinite;
+}
+
+
+@keyframes nombreEntrada {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* Movimiento lateral muy suave */
+
+@keyframes nombreMovimiento {
+
+    0% {
+
+        transform:
+            translateX(0);
+    }
+
+    25% {
+
+        transform:
+            translateX(4px);
+    }
+
+    50% {
+
+        transform:
+            translateX(0);
+    }
+
+    75% {
+
+        transform:
+            translateX(-4px);
+    }
+
+    100% {
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   UBICACIÓN
+   ========================================================= */
+
+.school-location {
+
+    margin-bottom:
+        18px;
+
+    color:
+        var(--gris-texto);
+
+    font-size:
+        0.9rem;
+
+    letter-spacing:
+        0.8px;
+
+    animation:
+        aparecerAbajo
+        1.1s
+        ease
+        both;
+}
+
+
+/* =========================================================
+   INFORMACIÓN INSTITUCIONAL
+   ========================================================= */
+
+.school-info {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin:
+        0 auto 24px;
+
+    animation:
+        aparecerAbajo
+        1.2s
+        ease
+        both;
+}
+
+
+.school-info span {
+
+    padding:
+        6px 13px;
+
+    border:
+        1px solid
+        rgba(194, 155, 56, 0.35);
+
+    border-radius:
+        30px;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    color:
+        var(--azul-profundo);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        600;
+
+    transition:
+        all 0.35s ease;
+}
+
+
+.school-info span:hover {
+
+    background:
+        var(--dorado-suave);
+
+    border-color:
+        var(--dorado);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 6px 15px
+        rgba(194, 155, 56, 0.15);
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
+
+.page-header h1 {
+
+    max-width:
+        950px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--azul-profundo);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2.3rem, 5vw, 4rem);
+
+    line-height:
+        1.1;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+
+    text-shadow:
+        0 4px 12px
+        rgba(14, 59, 102, 0.10);
+
+    animation:
+
+        tituloEntrada
+        1.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both,
+
+        tituloMovimiento
+        5s
+        ease-in-out
+        1.2s
+        infinite;
+}
+
+
+/* Entrada */
+
+@keyframes tituloEntrada {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   MOVIMIENTO CONTINUO DEL TÍTULO
+   ========================================================= */
+
+@keyframes tituloMovimiento {
+
+    0% {
+
+        transform:
+            translateY(0);
+    }
+
+    20% {
+
+        transform:
+            translateY(-5px);
+    }
+
+    40% {
+
+        transform:
+            translateY(0);
+    }
+
+    60% {
+
+        transform:
+            translateY(4px);
+    }
+
+    80% {
+
+        transform:
+            translateY(0);
+    }
+
+    100% {
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   LÍNEA DORADA
+   ========================================================= */
+
+.page-header h1::after {
+
+    content:
+        "";
+
+    display:
+        block;
+
+    width:
+        80px;
+
+    height:
+        4px;
+
+    margin:
+        18px auto 0;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            var(--dorado-claro)
+        );
+
+    animation:
+        lineaMovimiento
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes lineaMovimiento {
+
+    0% {
+
+        width:
+            70px;
+
+        opacity:
+            0.65;
+    }
+
+    50% {
+
+        width:
+            130px;
+
+        opacity:
+            1;
+    }
+
+    100% {
+
+        width:
+            70px;
+
+        opacity:
+            0.65;
+    }
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.page-header p {
+
+    max-width:
+        760px;
+
+    margin:
+        25px auto 0;
+
+    padding:
+        0 10px;
+
+    color:
+        var(--gris-texto);
+
+    font-size:
+        clamp(0.95rem, 2vw, 1.08rem);
+
+    line-height:
+        1.9;
+
+    animation:
+
+        descripcionEntrada
+        1.5s
+        ease
+        both,
+
+        descripcionMovimiento
+        6s
+        ease-in-out
+        1.5s
+        infinite;
+}
+
+
+/* Entrada */
+
+@keyframes descripcionEntrada {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* Movimiento de descripción */
+
+@keyframes descripcionMovimiento {
+
+    0% {
+
+        transform:
+            translateX(0);
+    }
+
+    25% {
+
+        transform:
+            translateX(3px);
+    }
+
+    50% {
+
+        transform:
+            translateX(0);
+    }
+
+    75% {
+
+        transform:
+            translateX(-3px);
+    }
+
+    100% {
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   SECCIÓN DONDE ESTÁN LAS FOTOS
+   ========================================================= */
+
+.places-grid {
+
+    position:
+        relative;
+
+    max-width:
+        100%;
+
+    margin:
+        0;
+
+    padding:
+        65px 24px 85px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+
+    gap:
+        30px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            var(--azul-seccion) 0%,
+            var(--azul-seccion-2) 50%,
+            #F7FBFD 100%
+        );
+
+    border-top:
+        1px solid
+        rgba(19, 82, 138, 0.10);
+
+    border-bottom:
+        1px solid
+        rgba(19, 82, 138, 0.08);
+}
+
+
+/* Línea decorativa de la sección */
+
+.places-grid::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        50%;
+
+    width:
+        100px;
+
+    height:
+        4px;
+
+    background:
+        var(--dorado);
+
+    border-radius:
+        0 0 10px 10px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.place-card {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--blanco);
+
+    border:
+        1px solid
+        rgba(19, 82, 138, 0.18);
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    opacity:
+        0;
+
+    animation:
+        tarjetaEntrada
+        0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+
+    transition:
+
+        transform
+        0.45s ease,
+
+        box-shadow
+        0.45s ease,
+
+        border-color
+        0.45s ease;
+}
+
+
+/* Entrada escalonada */
+
+.place-card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+.place-card:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+.place-card:nth-child(3) {
+    animation-delay: 0.30s;
+}
+
+.place-card:nth-child(4) {
+    animation-delay: 0.40s;
+}
+
+.place-card:nth-child(5) {
+    animation-delay: 0.50s;
+}
+
+.place-card:nth-child(6) {
+    animation-delay: 0.60s;
+}
+
+
+@keyframes tarjetaEntrada {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(45px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   HOVER DE TARJETA
+   ========================================================= */
+
+.place-card:hover {
+
+    transform:
+        translateY(-9px);
+
+    border-color:
+        var(--dorado);
+
+    box-shadow:
+        var(--sombra-hover);
+}
+
+
+/* =========================================================
+   BORDE SUPERIOR
+   ========================================================= */
+
+.place-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--dorado),
+            var(--azul-medio)
+        );
+
+    z-index:
+        5;
+
+    transform:
+        scaleX(0.35);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform 0.45s ease;
+}
+
+
+.place-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.image-wrapper {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        225px;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--azul-claro);
+}
+
+
+.place-image {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+    transition:
+
+        transform
+        0.75s
+        cubic-bezier(0.22, 1, 0.36, 1),
+
+        filter
+        0.6s ease;
+}
+
+
+/* =========================================================
+   ZOOM + BRILLO
+   ========================================================= */
+
+.place-card:hover .place-image {
+
+    transform:
+        scale(1.09);
+
+    filter:
+        brightness(1.12)
+        saturate(1.08)
+        contrast(1.03);
+}
+
+
+/* =========================================================
+   BARRIDO DE LUZ
+   ========================================================= */
+
+.image-wrapper::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -120%;
+
+    width:
+        60%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    pointer-events:
+        none;
+
+    transition:
+        left
+        0.8s
+        ease;
+}
+
+
+.place-card:hover .image-wrapper::after {
+
+    left:
+        150%;
+}
+
+
+/* =========================================================
+   TÍTULO DE TARJETA
+   ========================================================= */
+
+.place-card h3 {
+
+    padding:
+        20px 22px 8px;
+
+    color:
+        var(--azul-profundo);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.35rem;
+
+    font-weight:
+        700;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.place-card:hover h3 {
+
+    color:
+        var(--azul-medio);
+
+    transform:
+        translateX(5px);
+}
+
+
+/* Punto dorado */
+
+.place-card h3::before {
+
+    content:
+        "";
+
+    display:
+        inline-block;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    margin:
+        0 9px 3px 0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--dorado);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.place-card:hover h3::before {
+
+    transform:
+        scale(1.5);
+}
+
+
+/* =========================================================
+   TEXTO DE LAS TARJETAS
+   ========================================================= */
+
+.place-card p {
+
+    flex-grow:
+        1;
+
+    padding:
+        0 22px 25px;
+
+    color:
+        var(--gris-texto);
+
+    font-size:
+        0.94rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width:
+        9px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #EAF1F5;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--azul),
+            var(--dorado)
+        );
+
+    border-radius:
+        20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--azul-profundo);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .header-inner {
+
+        min-height:
+            auto;
+
+        padding:
+            14px 16px;
+
+        flex-direction:
+            column;
+
+        gap:
+            14px;
+    }
+
+
+    .site-title {
+
+        font-size:
+            1.25rem;
+    }
+
+
+    .main-nav ul {
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
+
+        gap:
+            3px;
+    }
+
+
+    .main-nav a {
+
+        padding:
+            8px 11px;
+
+        font-size:
+            0.82rem;
+    }
+
+
+    .page-header {
+
+        min-height:
+            430px;
+
+        padding:
+            60px 18px 55px;
+    }
+
+
+    .school-name {
+
+        font-size:
+            0.9rem;
+
+        letter-spacing:
+            1.7px;
+    }
+
+
+    .school-location {
+
+        font-size:
+            0.82rem;
+    }
+
+
+    .page-header h1 {
+
+        font-size:
+            2.35rem;
+    }
+
+
+    .page-header p {
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.7;
+    }
+
+
+    .places-grid {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            55px 18px 65px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .site-title {
+
+        font-size:
+            1.1rem;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .main-nav a {
+
+        font-size:
+            0.74rem;
+
+        padding:
+            6px 8px;
+    }
+
+
+    .page-header {
+
+        min-height:
+            400px;
+
+        padding:
+            50px 15px;
+    }
+
+
+    .school-name {
+
+        font-size:
+            0.76rem;
+
+        line-height:
+            1.5;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .school-info {
+
+        gap:
+            5px;
+
+        margin-bottom:
+            20px;
+    }
+
+
+    .school-info span {
+
+        padding:
+            5px 9px;
+
+        font-size:
+            0.68rem;
+    }
+
+
+    .page-header h1 {
+
+        font-size:
+            1.85rem;
+
+        letter-spacing:
+            0.5px;
+    }
+
+
+    .page-header p {
+
+        font-size:
+            0.87rem;
+
+        line-height:
+            1.65;
+    }
+
+
+    .places-grid {
+
+        gap:
+            20px;
+
+        padding:
+            50px 15px 55px;
+    }
+
+
+    .image-wrapper {
+
+        height:
+            205px;
+    }
+
+
+    .place-card h3 {
+
+        font-size:
+            1.2rem;
+
+        padding:
+            18px 18px 7px;
+    }
+
+
+    .place-card p {
+
+        padding:
+            0 18px 20px;
+
+        font-size:
+            0.88rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDR - Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="comida.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <video class="video-fondo" autoplay muted loop playsinline poster="IMAGENES/fdr2.jpg">
+                <source src="marruecos_historia.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="chinese">FRANKLIN DELANO ROOSEVELT</span>
+                </h1>
+                <p class="hero-subtitle">Educando desde 1945</p>
+                <a href="historia.html" class="btn btn-primary">Descubre FDR</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="padding: 40px 24px; background: #0E3B66; border-top: 3px solid var(--gold); text-align: center;">
+        <div class="container">
+            <p style="font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;">Franklin Delano Roosevelt</p>
+            <p style="color: #C7D3E0; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PROYECTO DE DISEÑO WEB</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      const video = document.querySelector('.video-fondo');
+      if (video) {
+        // Restaurar posición guardada
+        const savedTime = sessionStorage.getItem('videoTime');
+        if (savedTime) {
+          video.currentTime = parseFloat(savedTime);
+        }
+        // Forzar reproducción al cargar
+        video.play().catch(() => {
+          video.muted = true;
+          video.play();
+        });
+        // Guardar posición antes de salir
+        window.addEventListener('beforeunload', () => {
+          sessionStorage.setItem('videoTime', video.currentTime);
+        });
+        // También guardar periódicamente
+        setInterval(() => {
+          sessionStorage.setItem('videoTime', video.currentTime);
+        }, 1000);
+      }
+    </script>
+</body>
+</html>

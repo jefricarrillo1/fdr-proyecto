@@ -1,0 +1,10 @@
+# Archivos de bloqueo temporal de Microsoft Access
+*.laccdb
+*.ldb
+
+# Archivos del sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

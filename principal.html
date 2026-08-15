@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Franklin Delano Roosevelt - Inicio</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-text">FDR</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="comida.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+            </ul>
+
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <!-- VIDEO DE FONDO -->
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                class="video-fondo"
+            >
+                <source src="indexfdr.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+
+            <!-- OSCURECER UN POCO EL VIDEO -->
+            <div class="video-overlay"></div>
+
+            <!-- TEXTO -->
+            <div class="hero-content">
+
+                <h1 class="hero-title">
+                    FRANKLIN DELANO<br>
+                    ROOSEVELT
+                </h1>
+
+                <p class="hero-subtitle">
+                    Educando desde 1945
+                </p>
+
+                <a href="historia.html" class="btn btn-primary">
+                    Descubre FDR
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>Franklin Delano Roosevelt</p>
+            <span>PROYECTO DE DISEÑO WEB</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación - FDR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="comida.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html" class="active">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <span class="page-tag">Ubicación</span>
+                <h1 class="page-title">
+                    <span class="chinese">FDR</span>
+                    <span class="spanish">Franklin Delano Roosevelt</span>
+                </h1>
+                <p class="page-subtitle">Encuéntranos en el mapa</p>
+                <div class="breadcrumb">
+                    <a href="index.html" style="color: var(--white);">Inicio</a>
+                    <span style="color: var(--white);">/</span>
+                    <span style="color: var(--white);">Ubicación</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px var(--shadow);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.7585875983887!2d-87.9322636!3d15.8166784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f67b4804ba4a4d1%3A0xd613e9ebf0ad311a!2sFranklin%20Delano%20Roosevelt!5e0!3m2!1ses!2shn!4v1785898833630!5m2!1ses!2shn" 
+                            width="100%" 
+                            height="500" 
+                            style="border:0; display: block;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section alt">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 4vw, 36px); color: var(--primary); margin-bottom: 16px;">Dirección</h2>
+                    <p style="color: var(--text); font-size: 18px; line-height: 1.8;">Franklin Delano Roosevelt<br>Coordenadas: 15.8166784, -87.9322636</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
