@@ -39,7 +39,7 @@ if ($nombre === '' || $apellido === '' || $curso === '' || $observacion === '') 
             if ($stmt->execute()) {
                 $exito = true;
             } else {
-                $error_msg = "Error al guardar la observación: " . $stmt->error;
+                $error_msg = "Error al guardar la sugerencia: " . $stmt->error;
             }
             $stmt->close();
         }
@@ -52,7 +52,7 @@ if ($nombre === '' || $apellido === '' || $curso === '' || $observacion === '') 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respuesta - Observaciones F.D.R.</title>
+    <title>Respuesta - Sugerencias F.D.R.</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -66,7 +66,7 @@ if ($nombre === '' || $apellido === '' || $curso === '' || $observacion === '') 
                 </div>
 
                 <?php if ($exito): ?>
-                    <h2 style="color: #27ae60; margin-top: 20px;">¡Observación enviada con éxito!</h2>
+                    <h2 style="color: #27ae60; margin-top: 20px;">¡Sugerencia enviada con éxito!</h2>
                     <p style="margin-top: 15px; font-size: 16px;">Tus datos han sido guardados correctamente en la base de datos MySQL.</p>
                     <p style="margin-top: 10px; font-size: 15px;">
                         <strong>Nombre:</strong> <?php echo htmlspecialchars($nombre . ' ' . $apellido); ?><br>
