@@ -1,0 +1,9 @@
+{
+  "name": "proyecto-fdr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web Instituto Franklin Delano Roosevelt - Funciones serverless para Sugerencias",
+  "dependencies": {
+    "mysql2": "^3.11.0"
+  }
+}
