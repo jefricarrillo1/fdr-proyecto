@@ -3226,6 +3226,15 @@ button:focus-visible {
     color: var(--primary);
 }
 
+/* Tarjetas de sección (desde inicio) */
+.section-card h3 {
+    color: var(--primary);
+}
+
+.section-card:hover {
+    border-color: var(--gold);
+}
+
 /* Resaltados / pildoras */
 .tag,
 .dish-tag,
@@ -3271,6 +3280,158 @@ button:focus-visible {
     height: 6px;
     border-radius: 50%;
     background: var(--gold);
+}
+
+/* =========================================================
+   FORMULARIO DE OBSERVACIONES
+   ========================================================= */
+
+.observacion-form {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 50px var(--shadow);
+}
+
+.obs-head {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.obs-head h2 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.obs-head p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.obs-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.obs-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.obs-field label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.obs-field input,
+.obs-field select,
+.obs-field textarea {
+    width: 100%;
+    padding: 13px 18px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+}
+
+.obs-field select {
+    cursor: pointer;
+}
+
+.obs-field select:disabled {
+    background: #F2F6FA;
+    color: #9FB0C0;
+    cursor: not-allowed;
+}
+
+.obs-field textarea {
+    resize: vertical;
+}
+
+.obs-field input:focus,
+.obs-field select:focus,
+.obs-field textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(194, 155, 56, 0.35);
+}
+
+.obs-field input::placeholder,
+.obs-field textarea::placeholder {
+    color: #9FB0C0;
+    font-weight: 300;
+}
+
+.obs-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.obs-submit {
+    background: linear-gradient(135deg, #0E3B66 0%, #0A2A4A 100%);
+    color: #ffffff;
+    border: none;
+    padding: 15px 38px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(14, 59, 102, 0.35);
+}
+
+.obs-submit:hover {
+    background: linear-gradient(135deg, #C29B38 0%, #A8842F 100%);
+    box-shadow: 0 8px 25px rgba(194, 155, 56, 0.5);
+    transform: translateY(-2px);
+}
+
+.obs-submit:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .obs-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.obs-result {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.obs-result.obs-ok {
+    background: #EAF8EF;
+    border-color: #27ae60;
+    color: #1e7d42;
+}
+
+.obs-result.obs-error {
+    background: #FDEFF0;
+    border-color: #c0392b;
+    color: #a93226;
 }
 
 /* Icono de Vision: texto azul marino sobre dorado */

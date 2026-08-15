@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observaciones - Instituto FDR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="comida.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="observaciones.html" class="active">Observaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <span class="page-tag">Institucional</span>
+                <h1 class="page-title">
+                    <span class="chinese">OBSERVACIONES</span>
+                </h1>
+                <p class="page-subtitle">Registra tus observaciones y sugerencias para el Instituto FDR</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <form id="obs-form" class="observacion-form" action="api/guardar" method="POST">
+                    <div class="obs-head">
+                        <h2>Formulario de Observaciones y Sugerencias</h2>
+                        <p>Completa los campos y envía tu observación. Será guardada en la base de datos institucional.</p>
+                    </div>
+
+                    <div class="obs-field">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre y apellido">
+                    </div>
+
+                    <div class="obs-row">
+                        <div class="obs-field">
+                            <label for="carrera">Carrera *</label>
+                            <select id="carrera" name="carrera" required>
+                                <option value="">Cargando carreras...</option>
+                            </select>
+                        </div>
+                        <div class="obs-field">
+                            <label for="grado">Grado *</label>
+                            <select id="grado" name="grado" required disabled>
+                                <option value="">Primero elige la carrera</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="obs-field">
+                        <label for="seccion">Sección *</label>
+                        <select id="seccion" name="seccion" required>
+                            <option value="">Cargando secciones...</option>
+                        </select>
+                    </div>
+
+                    <div class="obs-field">
+                        <label for="texto">Observación / Sugerencia *</label>
+                        <textarea id="texto" name="texto" rows="5" required placeholder="Escribe aquí tu observación..."></textarea>
+                    </div>
+
+                    <div class="obs-actions">
+                        <button type="submit" class="obs-submit">Enviar Sugerencia</button>
+                    </div>
+
+                    <div id="obs-result" class="obs-result" style="display:none;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="padding: 40px 24px; background: #0E3B66; border-top: 3px solid var(--gold); text-align: center;">
+        <div class="container">
+            <p style="font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;">Franklin Delano Roosevelt</p>
+            <p style="color: #C7D3E0; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PROYECTO DE DISEÑO WEB</p>
+        </div>
+    </footer>
+
+    <script>
+        // =================================================
+        // ENDPOINTS (Vercel Serverless)
+        // Si pruebas en local con XAMPP, cambia las rutas por
+        // las versiones PHP:  sugerencias_api.php / sugerencias_guardar.php
+        // =================================================
+        const API_BASE = 'api';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('obs-form');
+            const carrera = document.getElementById('carrera');
+            const grado = document.getElementById('grado');
+            const seccion = document.getElementById('seccion');
+            const resultado = document.getElementById('obs-result');
+            const btn = form.querySelector('.obs-submit');
+
+            function cargarLista(url, select, placeholder, campoId, campoTexto) {
+                return fetch(url)
+                    .then(function (r) { return r.json(); })
+                    .then(function (lista) {
+                        if (Array.isArray(lista) && lista.length === 0) {
+                            select.innerHTML = '<option value="">No hay datos</option>';
+                            return;
+                        }
+                        select.innerHTML = '<option value="">' + placeholder + '</option>';
+                        lista.forEach(function (item) {
+                            const op = document.createElement('option');
+                            op.value = item[campoId];
+                            op.textContent = item[campoTexto];
+                            select.appendChild(op);
+                        });
+                    })
+                    .catch(function () {
+                        select.innerHTML = '<option value="">Error al cargar datos</option>';
+                    });
+            }
+
+            // Carreras
+            cargarLista(API_BASE + '/carreras', carrera, 'Seleccione una carrera', 'id_carrera', 'nombre_carrera');
+
+            // Grados según la carrera
+            carrera.addEventListener('change', function () {
+                grado.innerHTML = '<option value="">Cargando grados...</option>';
+                grado.disabled = true;
+                if (!carrera.value) {
+                    grado.innerHTML = '<option value="">Primero elige la carrera</option>';
+                    return;
+                }
+                cargarLista(
+                    API_BASE + '/grados?carrera=' + encodeURIComponent(carrera.value),
+                    grado,
+                    'Seleccione un grado',
+                    'id_grado',
+                    'nombre_grado'
+                ).then(function () { grado.disabled = false; });
+            });
+
+            // Secciones
+            cargarLista(API_BASE + '/secciones', seccion, 'Seleccione una sección', 'id_seccion', 'nombre_seccion');
+
+            // Envío por fetch (no recarga la página)
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+
+                const datos = new FormData(form);
+                fetch(API_BASE + '/guardar', {
+                    method: 'POST',
+                    body: datos
+                })
+                    .then(function (r) { return r.json(); })
+                    .then(function (res) {
+                        resultado.style.display = 'block';
+                        if (res.ok) {
+                            resultado.className = 'obs-result obs-ok';
+                            resultado.innerHTML =
+                                '¡Sugerencia enviada con éxito!<br>' +
+                                '<strong>' + res.nombre + '</strong> · ' +
+                                res.carrera + ' · ' + res.grado + ' · Sección ' + res.seccion;
+                            form.reset();
+                            grado.innerHTML = '<option value="">Primero elige la carrera</option>';
+                            grado.disabled = true;
+                        } else {
+                            resultado.className = 'obs-result obs-error';
+                            resultado.textContent = res.error || 'Ocurrió un error al guardar.';
+                        }
+                    })
+                    .catch(function () {
+                        resultado.style.display = 'block';
+                        resultado.className = 'obs-result obs-error';
+                        resultado.textContent = 'Error de conexión con el servidor.';
+                    })
+                    .finally(function () {
+                        btn.disabled = false;
+                        btn.textContent = 'Enviar Sugerencia';
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

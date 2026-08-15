@@ -8,3 +8,8 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
+
+# Credenciales y certificados (NUNCA subir estos archivos)
+.env
+*.pem
+config.php
