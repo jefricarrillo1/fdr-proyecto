@@ -198,6 +198,16 @@ body {
     z-index: 1;
 }
 
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 42, 74, 0.6) 0%, rgba(10, 42, 74, 0.35) 100%);
+    z-index: 1;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -1067,8 +1077,7 @@ body {
     }
 }
 
-/* Animations */
-@keyframes fadeInUp {
+@media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -3438,4 +3447,317 @@ button:focus-visible {
 .mv-card.vision .mv-icon,
 .mv-card.vision .mv-icon-bottom {
     color: var(--primary-dark);
+}
+
+/* =========================================================
+   RESPONSIVO GLOBAL
+   ========================================================= */
+
+img,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+/* ---------- Tablets / pantallas medianas ---------- */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .nav {
+        height: 64px;
+    }
+
+    .nav-links a {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 120px 20px 60px;
+    }
+
+    .hero-title {
+        font-size: clamp(40px, 7vw, 56px);
+    }
+
+    .sections-grid {
+        padding: 70px 20px;
+    }
+
+    .content-section {
+        padding: 70px 20px;
+    }
+
+    .mv-valores {
+        gap: 16px;
+    }
+
+    .valor-item {
+        padding: 16px 22px;
+    }
+
+    .history-intro,
+    .timeline-section,
+    .history-gallery,
+    .history-facts {
+        padding: 60px 20px;
+    }
+
+    .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Móviles grandes ---------- */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 92vh;
+        padding: 110px 16px 50px;
+    }
+
+    .hero-title {
+        font-size: clamp(32px, 9vw, 44px);
+        letter-spacing: 2px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(16px, 4vw, 19px);
+    }
+
+    .btn {
+        padding: 14px 30px;
+        font-size: 14px;
+    }
+
+    .page-header {
+        min-height: auto;
+        padding: 110px 16px 60px;
+    }
+
+    .page-header .chinese {
+        font-size: clamp(32px, 9vw, 44px);
+    }
+
+    .page-header .spanish {
+        font-size: clamp(15px, 4vw, 20px);
+        letter-spacing: 3px;
+    }
+
+    .page-title {
+        gap: 8px;
+    }
+
+    .page-subtitle {
+        font-size: 15px;
+    }
+
+    .page-tag {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .breadcrumb {
+        flex-wrap: wrap;
+        font-size: 13px;
+    }
+
+    .content-section {
+        padding: 60px 16px;
+    }
+
+    .sections-grid {
+        padding: 60px 16px;
+    }
+
+    .section-card {
+        padding: 36px 24px;
+    }
+
+    .history-intro,
+    .timeline-section,
+    .history-gallery,
+    .history-facts {
+        padding: 55px 16px;
+    }
+
+    .intro-grid {
+        gap: 24px;
+    }
+
+    .intro-text h2 {
+        font-size: 26px;
+    }
+
+    .timeline-year {
+        font-size: 18px;
+    }
+
+    .timeline-content {
+        padding: 22px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+
+    .fact-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mv-valores {
+        gap: 12px;
+    }
+
+    .activity-card {
+        flex-direction: column;
+    }
+
+    .observacion-form {
+        padding: 26px 18px;
+    }
+
+    .obs-head h2 {
+        font-size: 22px;
+    }
+
+    /* Menú móvil: header fijo y panel desplegable */
+    .nav {
+        height: 60px;
+    }
+
+    .nav-links {
+        top: 60px;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .contenedor-mision-vision {
+        padding-top: 90px;
+        padding-bottom: 50px;
+    }
+
+    .content-section iframe {
+        height: 380px !important;
+    }
+}
+
+/* ---------- Móviles pequeños ---------- */
+@media (max-width: 640px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .hero,
+    .page-header {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .section-card h3 {
+        font-size: 20px;
+    }
+
+    .page-title {
+        font-size: clamp(30px, 8vw, 38px);
+    }
+
+    .footer .container p,
+    .footer-brand {
+        font-size: 20px;
+    }
+
+    .footer {
+        padding: 40px 18px 24px;
+    }
+
+    .intro-text p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    .obs-field input,
+    .obs-field select,
+    .obs-field textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .obs-submit {
+        padding: 13px 28px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ---------- Móviles muy pequeños ---------- */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(28px, 10vw, 36px);
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .btn {
+        padding: 12px 26px;
+        font-size: 13px;
+    }
+
+    .section-card {
+        padding: 30px 18px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+
+    .activity-image {
+        height: 190px;
+    }
+
+    .timeline-year {
+        font-size: 16px;
+    }
+
+    /* Timeline colapsado a una columna */
+    .timeline-content {
+        width: calc(100% - 52px) !important;
+        margin-left: 52px !important;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 52px !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+    }
+
+    .mv-card h2 {
+        font-size: 24px;
+    }
+
+    .mv-card p {
+        font-size: 15px;
+    }
 }
