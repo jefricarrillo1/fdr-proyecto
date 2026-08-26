@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorrido Institucional del Campus</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Fuentes e Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      --accent-gradient: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --border-color: #e2e8f0;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow-subtle: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+      --shadow-hover: 0 20px 35px -5px rgba(37, 99, 235, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    /* Encabezado Principal */
+    header {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 4rem 1.5rem 5rem;
+      text-align: center;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      box-shadow: 0 15px 30px rgba(30, 58, 138, 0.25);
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Buscador Interactivo */
+    .search-container {
+      max-width: 500px;
+      margin: -1.75rem auto 2.5rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
+
+    /* Contenedor de Edificios */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .section-header {
+      background: #f8fafc;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-header::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 24px;
+      background: var(--accent-gradient);
+      border-radius: 4px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .section-body {
+      padding: 2rem;
+    }
+
+    /* Galería de Tarjetas */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .photo-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #f1f5f9;
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-card:active {
+      transform: scale(0.98);
+    }
+
+    .photo-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.6);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .photo-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .photo-tag span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Lightbox Modal Moderno */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 950px;
+      width: 100%;
+    }
+
+    .modal-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .modal-content {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
+    }
+
+    .modal-info {
+      margin-top: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .modal-caption {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .image-counter {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      background: white;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="IMAGENES/fdrLogo.jpg" alt="Logo FDR" class="logo-img">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="instalaciones.html" class="active">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="observaciones.html">Sugerencias</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+  <!-- Buscador en Tiempo Real -->
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar instalación o edificio..." onkeyup="filterLocations()">
+  </div>
+
+  <div class="container" id="cardsContainer">
+
+    <!-- EDIFICIO A -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2 class="section-title">Edificio A</h2>
+      </div>
+      <div class="section-body">
+        <div class="gallery-grid">
+          <div class="photo-card" onclick="openModal('Edificio A', ['IMAGENES/A1.jpeg', 'IMAGENES/A2.jpeg', 'IMAGENES/A3.jpeg'])">
+            <span class="photo-badge">3 Fotos</span>
+            <img src="IMAGENES/A1.jpeg" alt="Edificio A" onerror="this.src='https://via.placeholder.com/400x300?text=Edificio+A'">
+            <div class="photo-tag"><span>Edificio A</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Parqueo Edificio A', ['IMAGENES/PARQ_A1.jpeg'])">
+            <span class="photo-badge">1 Foto</span>
+            <img src="IMAGENES/PARQ_A1.jpeg" alt="Parqueo Edificio A" onerror="this.src='https://via.placeholder.com/400x300?text=Parqueo+Edificio+A'">
+            <div class="photo-tag"><span>Parqueo Edificio A</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Cancha Edificio A', ['IMAGENES/CA3.jpeg', 'IMAGENES/CA1.jpeg','IMAGENES/CA2.jpeg'])">
+            <span class="photo-badge">3 Fotos</span>
+            <img src="IMAGENES/CA3.jpeg" alt="Cancha Edificio A" onerror="this.src='https://via.placeholder.com/400x300?text=Cancha+Edificio+A'">
+            <div class="photo-tag"><span>Cancha Edificio A</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Parque Edificio A', ['IMAGENES/PA1.jpeg', 'IMAGENES/PA2.jpeg', 'IMAGENES/PA3.jpeg','IMAGENES/PA4.jpeg'])">
+            <span class="photo-badge">4 Fotos</span>
+            <img src="IMAGENES/PA3.jpeg" alt="Parque Edificio A" onerror="this.src='https://via.placeholder.com/400x300?text=Parque+Edificio+A'">
+            <div class="photo-tag"><span>Parque Edificio A</span> 🔍</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDIFICIO B -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2 class="section-title">Edificio B</h2>
+      </div>
+      <div class="section-body">
+        <div class="gallery-grid">
+          <div class="photo-card" onclick="openModal('Edificio B', ['IMAGENES/EB1.jpeg', 'IMAGENES/EB2.jpeg', 'IMAGENES/EB3.jpeg','IMAGENES/EB4.jpeg'])">
+            <span class="photo-badge">4 Fotos</span>
+            <img src="IMAGENES/EB1.jpeg" alt="Edificio B" onerror="this.src='https://via.placeholder.com/400x300?text=Edificio+B'">
+            <div class="photo-tag"><span>Edificio B</span> 🔍</div>
+          </div>
+       <div class="photo-card" onclick="openModal('Gimnasio', ['IMAGENES/G1.jpeg', 'IMAGENES/G2.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/G2.jpeg" alt="Gimnasio" onerror="this.src='https://via.placeholder.com/400x300?text=Parqueo+Principal'">
+            <div class="photo-tag"><span>Gimnasio</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Parqueo Principal', ['IMAGENES/PARQ_P1.jpeg', 'IMAGENES/PARQ_P2.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/PARQ_P1.jpeg" alt="Parqueo Principal" onerror="this.src='https://via.placeholder.com/400x300?text=Parqueo+Principal'">
+            <div class="photo-tag"><span>Parqueo Principal</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Cancha de Fútbol', ['IMAGENES/CF1.jpeg', 'IMAGENES/CF2.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/CF1.jpeg" alt="Cancha de Fútbol" onerror="this.src='https://via.placeholder.com/400x300?text=Cancha+de+Fútbol'">
+            <div class="photo-tag"><span>Cancha de Fútbol</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Laboratorio de Ciencias Sociales', ['IMAGENES/LCS1.jpeg', 'IMAGENES/LCS2.jpeg', 'IMAGENES/LCS3.jpeg','IMAGENES/LCS4.jpeg'])">
+            <span class="photo-badge">4 Fotos</span>
+            <img src="IMAGENES/LCS2.jpeg" alt="Lab. Ciencias Sociales" onerror="this.src='https://via.placeholder.com/400x300?text=Lab.+Ciencias+Sociales'">
+            <div class="photo-tag"><span>Lab. Ciencias Sociales</span> 🔍</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDIFICIO C -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2 class="section-title">Edificio C</h2>
+      </div>
+      <div class="section-body">
+        <div class="gallery-grid">
+          <div class="photo-card" onclick="openModal('Edificio C', ['IMAGENES/EC1.jpeg', 'IMAGENES/EC2.jpeg', 'IMAGENES/EC3.jpeg', 'IMAGENES/EC4.jpeg'])">
+            <span class="photo-badge">4 Fotos</span>
+            <img src="IMAGENES/EC1.jpeg" alt="Edificio C" onerror="this.src='https://via.placeholder.com/400x300?text=Edificio+C'">
+            <div class="photo-tag"><span>Edificio C</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Teatro Griego', ['IMAGENES/TG1.jpeg', 'IMAGENES/TG2.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/TG1.jpeg" alt="Teatro Griego" onerror="this.src='https://via.placeholder.com/400x300?text=Teatro+Griego'">
+            <div class="photo-tag"><span>Teatro Griego</span> 🔍</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDIFICIO D -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2 class="section-title">Edificio D</h2>
+      </div>
+      <div class="section-body">
+        <div class="gallery-grid">
+          <div class="photo-card" onclick="openModal('Edificio D', ['IMAGENES/ED1.jpeg', 'IMAGENES/ED2.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/ED1.jpeg" alt="Edificio D" onerror="this.src='https://via.placeholder.com/400x300?text=Edificio+D'">
+            <div class="photo-tag"><span>Edificio D</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Cafetería y Comedor Solidario', ['IMAGENES/CAF1.jpeg','IMAGENES/COM1.jpeg'])">
+            <span class="photo-badge">2 Fotos</span>
+            <img src="IMAGENES/CAF1.jpeg" alt="Cafeterías" onerror="this.src='https://via.placeholder.com/400x300?text=Cafetería'">
+            <div class="photo-tag"><span>Cafetería</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Parque Edificio D', ['IMAGENES/PD1.jpeg', 'IMAGENES/PD2.jpeg', 'IMAGENES/PD3.jpeg'])">
+            <span class="photo-badge">3 Fotos</span>
+            <img src="IMAGENES/PD1.jpeg" alt="Parque Edificio D" onerror="this.src='https://via.placeholder.com/400x300?text=Parque+Edificio+D'">
+            <div class="photo-tag"><span>Parque Edificio D</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Microempresas', ['IMAGENES/M1.jpeg', 'IMAGENES/M2.jpeg', 'IMAGENES/M3.jpeg'])">
+            <span class="photo-badge">3 Fotos</span>
+            <img src="IMAGENES/M3.jpeg" alt="Microempresas" onerror="this.src='https://via.placeholder.com/400x300?text=Microempresas'">
+            <div class="photo-tag"><span>Microempresas</span> 🔍</div>
+          </div>
+          <div class="photo-card" onclick="openModal('Huerto', ['IMAGENES/H1.jpeg', 'IMAGENES/H2.jpeg','IMAGENES/H3.jpeg','IMAGENES/H4.jpeg','IMAGENES/H5.jpeg'])">
+            <span class="photo-badge">5 Fotos</span>
+            <img src="IMAGENES/H1.jpeg" alt="Huerto" onerror="this.src='https://via.placeholder.com/400x300?text=Huerto'">
+            <div class="photo-tag"><span>Huerto</span> 🔍</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Visor Modal Lightbox con Carrusel -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <div class="modal-content-wrapper" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      
+      <div class="modal-carousel">
+        <button class="nav-btn prev" onclick="changeImage(-1)">&#10094;</button>
+        <img id="modalImg" class="modal-content" src="" alt="Vista ampliada">
+        <button class="nav-btn next" onclick="changeImage(1)">&#10095;</button>
+      </div>
+
+      <div class="modal-info">
+        <div id="modalCaption" class="modal-caption"></div>
+        <div id="imageCounter" class="image-counter">1 / 3</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© Recorrido Institucional Interactivo</p>
+  </footer>
+
+  <script>
+    let currentImages = [];
+    let currentIndex = 0;
+    let currentCaption = '';
+
+    function openModal(caption, images) {
+      currentImages = images;
+      currentIndex = 0;
+      currentCaption = caption;
+
+      updateModalImage();
+      
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      
+      if (currentIndex >= currentImages.length) {
+        currentIndex = 0;
+      } else if (currentIndex < 0) {
+        currentIndex = currentImages.length - 1;
+      }
+      
+      updateModalImage();
+    }
+
+    function updateModalImage() {
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const imageCounter = document.getElementById('imageCounter');
+
+      modalImg.src = currentImages[currentIndex];
+      modalCaption.textContent = currentCaption;
+      imageCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+    }
+
+    // Filtro de Búsqueda
+    function filterLocations() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.photo-card');
+      const sections = document.querySelectorAll('.section-card');
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      sections.forEach(section => {
+        const visibleCards = section.querySelectorAll('.photo-card[style="display: block;"], .photo-card:not([style*="display"])');
+        if (visibleCards.length === 0 && input !== '') {
+          section.style.display = 'none';
+        } else {
+          section.style.display = 'block';
+        }
+      });
+    }
+
+    // Controles de Teclado
+    document.addEventListener('keydown', function(e) {
+      const modal = document.getElementById('imageModal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'ArrowRight') changeImage(1);
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'Escape') closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

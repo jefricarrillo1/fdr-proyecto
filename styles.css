@@ -92,6 +92,14 @@ body {
     font-family: var(--font-heading);
 }
 
+.logo-img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+}
+
 .logo-text {
     font-family: var(--font-heading);
     font-size: 22px;
