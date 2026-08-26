@@ -43,7 +43,7 @@ if (!$conn) {
             
             <div class="card-info" style="width: 100%;">
                 <div class="logo-container">
-                    <img src="FranklinDelano.jpg" alt="Logo Instituto Franklin Delano Roosevelt" class="logo-colegio">
+                    <img src="IMAGENES/FranklinDelano.jpg" alt="Logo Instituto Franklin Delano Roosevelt" class="logo-colegio">
                 </div>
                 
                 <?php if ($exito): ?>
