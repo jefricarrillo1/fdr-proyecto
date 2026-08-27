@@ -252,10 +252,11 @@ body {
 .hero-subtitle {
     font-size: clamp(18px, 2.5vw, 24px);
     color: var(--white);
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     max-width: 500px;
     font-weight: 500;
     line-height: 1.7;
+    text-align: center;
 }
 
 .btn {
