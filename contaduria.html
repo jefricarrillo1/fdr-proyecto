@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaduría y Finanzas - Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body { background-color: var(--darker); }
+        .page-header {
+            background: linear-gradient(180deg, #0E3B66 0%, #0A2A4A 100%);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 60px;
+        }
+        .seccion-detalle {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .texto-detalle h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .texto-detalle p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .texto-detalle strong { color: var(--text); }
+        .btn-volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px var(--shadow-glow);
+        }
+        .btn-volver:hover { transform: translateY(-3px); box-shadow: 0 12px 30px var(--shadow-glow); }
+        .imagen-detalle {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px var(--shadow);
+            background: var(--card-bg);
+            max-width: 420px;
+            margin-left: auto;
+        }
+        .imagen-detalle img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .imagen-detalle:hover img { transform: scale(1.03); }
+        @media (max-width: 768px) {
+            .seccion-detalle { grid-template-columns: 1fr; gap: 32px; padding: 40px 16px 60px; }
+            .texto-detalle h2 { font-size: 26px; }
+            .imagen-detalle { max-width: 100%; margin: 0 auto; order: -1; }
+            .imagen-detalle img { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="IMAGENES/fdrLogo.jpg" alt="Logo FDR" class="logo-img">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="observaciones.html">Sugerencias</a></li>
+                <li><a href="carreras.html" class="active">Carreras</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <span class="page-tag">Carreras</span>
+            <h1 class="page-title">
+                <span class="chinese">CONTADURÍA</span>
+                <span class="spanish" style="color: var(--gold-light);">Contaduría y Finanzas</span>
+            </h1>
+            <p class="page-subtitle">Registro contable, auditoría y control financiero</p>
+            <div class="breadcrumb">
+                <a href="index.html" style="color: var(--white);">Inicio</a>
+                <span style="color: var(--white);">/</span>
+                <a href="carreras.html" style="color: var(--white);">Carreras</a>
+                <span style="color: var(--white);">/</span>
+                <span style="color: var(--white);">Contaduría</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="seccion-detalle">
+        
+        <div class="texto-detalle">
+            <h2>Contaduría y Finanzas</h2>
+            <p>
+                Esta especialidad capacita a los estudiantes en la elaboración de libros contables, registro de operaciones comerciales, cálculo de impuestos y preparación de estados financieros conforme a las leyes fiscales vigentes.
+            </p>
+            <p>
+                <strong>Competencias Principales:</strong><br>
+                • Registro y control de operaciones contables empresariales.<br>
+                • Elaboración de estados financieros y balances de comprobación.<br>
+                • Gestión de planillas, deducciones y obligaciones tributarias.<br>
+                • Aplicación de sistemas contables computarizados y auditoría básica.
+            </p>
+            <p>
+                <strong>Campo Laboral:</strong><br>
+                Despachos contables, departamentos de contabilidad de empresas públicas y privadas, auditoría interna, gestión fiscal, inventarios y consultoría financiera independiente.
+            </p>
+
+            <a href="carreras.html" class="btn-volver">← Volver a Carreras</a>
+        </div>
+
+        <div class="imagen-detalle">
+            <!-- Cambia el nombre por tu imagen, ej: IMAGENES/contaduria.jpeg -->
+            <img src="IMAGENES/contaduria.jpeg" alt="Carrera de Contaduría y Finanzas" onerror="this.src='IMAGENES/fdr2.jpg'">
+        </div>
+
+    </main>
+
+    <footer class="footer" style="padding: 40px 24px; background: #0E3B66; border-top: 3px solid var(--gold); text-align: center;">
+        <div class="container">
+            <p style="font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;">Franklin Delano Roosevelt</p>
+            <p style="color: #C7D3E0; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PROYECTO DE DISEÑO WEB</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
