@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras - Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Carreras - adaptado al tema global */
+        body {
+            background-color: var(--darker);
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, #0E3B66 0%, #0A2A4A 100%);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 60px;
+        }
+
+        .hero-carreras {
+            text-align: center;
+            padding: 40px 24px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-carreras h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-carreras p {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .contenedor-carreras {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .tarjeta-carrera {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            min-height: 220px;
+        }
+
+        .tarjeta-carrera::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .tarjeta-carrera:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .tarjeta-carrera:hover::before {
+            opacity: 1;
+        }
+
+        .tarjeta-carrera h2 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .tarjeta-carrera p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .btn-ver-mas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .tarjeta-carrera:hover .btn-ver-mas {
+            color: var(--primary-dark);
+            gap: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contenedor-carreras {
+                grid-template-columns: 1fr;
+                padding: 24px 16px 60px;
+                gap: 16px;
+            }
+            .tarjeta-carrera {
+                padding: 24px;
+                min-height: auto;
+            }
+            .hero-carreras h1 {
+                font-size: 24px;
+            }
+            .hero-carreras p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="IMAGENES/fdrLogo.jpg" alt="Logo FDR" class="logo-img">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="observaciones.html">Sugerencias</a></li>
+                <li><a href="carreras.html" class="active">Carreras</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <span class="page-tag">Oferta Académica</span>
+            <h1 class="page-title">
+                <span class="chinese">CARRERAS</span>
+                <span class="spanish" style="color: var(--gold-light);">Franklin Delano Roosevelt</span>
+            </h1>
+            <p class="page-subtitle">Explora las opciones de formación técnica y académica disponibles</p>
+            <div class="breadcrumb">
+                <a href="index.html" style="color: var(--white);">Inicio</a>
+                <span style="color: var(--white);">/</span>
+                <span style="color: var(--white);">Carreras</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-carreras">
+        <h1>¿Qué carrera vas a elegir?</h1>
+        <p>Descubre las carreras que el Instituto Franklin Delano Roosevelt ofrece para tu futuro profesional</p>
+    </section>
+
+    <main class="contenedor-carreras">
+
+        <a href="informatica.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-computer" style="color: var(--primary); margin-right: 8px;"></i> Informática</h2>
+                <p>Desarrollo de software, soporte técnico, redes de computadoras y programación web.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="robotica.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-robot" style="color: var(--primary); margin-right: 8px;"></i> Robótica</h2>
+                <p>Diseño, construcción y programación de sistemas automatizados y mecatrónica aplicable.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="administracion.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 8px;"></i> Administración de Empresas</h2>
+                <p>Gestión empresarial, contabilidad, finanzas y estrategia de negocios modernos.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="metalica.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-screwdriver-wrench" style="color: var(--primary); margin-right: 8px;"></i> Metálica</h2>
+                <p>Manejo de procesos industriales, soldadura especializada y estructuras metálicas.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="maritimo.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-ship" style="color: var(--primary); margin-right: 8px;"></i> Marítimo Portuario</h2>
+                <p>Operaciones de logística marítima, administración de puertos y comercio internacional.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="banca.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-building-columns" style="color: var(--primary); margin-right: 8px;"></i> Banca y Finanzas</h2>
+                <p>Gestión de servicios financieros, operaciones bancarias, inversiones y análisis de crédito.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="contaduria.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 8px;"></i> Contaduría</h2>
+                <p>Sistemas contables, auditoría, impuestos y control financiero de organizaciones.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+        <a href="humanidades.html" class="tarjeta-carrera">
+            <div>
+                <h2><i class="fa-solid fa-book-open" style="color: var(--primary); margin-right: 8px;"></i> Ciencias y Humanidades</h2>
+                <p>Formación integral en pensamiento crítico, investigación científica, literatura y ciencias sociales.</p>
+            </div>
+            <span class="btn-ver-mas">Ver información completa →</span>
+        </a>
+
+    </main>
+
+    <footer class="footer" style="padding: 40px 24px; background: #0E3B66; border-top: 3px solid var(--gold); text-align: center;">
+        <div class="container">
+            <p style="font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;">Franklin Delano Roosevelt</p>
+            <p style="color: #C7D3E0; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PROYECTO DE DISEÑO WEB</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
