@@ -30,6 +30,13 @@ switch ($action) {
         $result = $conn->query("SELECT id_carrera, nombre_carrera FROM carreras ORDER BY nombre_carrera");
         $data = [];
         while ($row = $result->fetch_assoc()) {
+            // Limpieza: quitar prefijo Bachillerato/Bach. y normalizar
+            $n = preg_replace('/^Bachillerato en\s*/i', '', $row['nombre_carrera']);
+            $n = preg_replace('/^Bach\.\s*/i', '', $n);
+            $n = trim($n);
+            if (preg_match('/maritimo portuario/i', $n)) $n = 'Marítimo Portuario';
+            if (strtolower($n) === 'administración de empresas') $n = 'Administración de Empresas';
+            $row['nombre_carrera'] = $n;
             $data[] = $row;
         }
         echo json_encode($data);
@@ -73,6 +80,12 @@ switch ($action) {
         $result = $conn->query($sql);
         $data = [];
         while ($row = $result->fetch_assoc()) {
+            $n = preg_replace('/^Bachillerato en\s*/i', '', $row['nombre_carrera']);
+            $n = preg_replace('/^Bach\.\s*/i', '', $n);
+            $n = trim($n);
+            if (preg_match('/maritimo portuario/i', $n)) $n = 'Marítimo Portuario';
+            if (strtolower($n) === 'administración de empresas') $n = 'Administración de Empresas';
+            $row['nombre_carrera'] = $n;
             $data[] = $row;
         }
         echo json_encode($data);

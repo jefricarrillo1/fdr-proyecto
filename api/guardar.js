@@ -33,12 +33,17 @@ module.exports = async function handler(req, res) {
     const [g] = await pool.query('SELECT nombre_grado FROM grados WHERE id_grado = ?', [idGrado]);
     const [s] = await pool.query('SELECT nombre_seccion FROM secciones WHERE id_seccion = ?', [idSeccion]);
 
+    let nombreCarrera = c[0] ? c[0].nombre_carrera : '';
+    nombreCarrera = nombreCarrera.replace(/^Bachillerato en\s*/i, '').replace(/^Bach\.\s*/i, '').trim();
+    if (/maritimo portuario/i.test(nombreCarrera)) nombreCarrera = 'Marítimo Portuario';
+    if (nombreCarrera.toLowerCase() === 'administración de empresas') nombreCarrera = 'Administración de Empresas';
+
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     return res.status(200).json({
       ok: true,
       id: result.insertId,
       nombre,
-      carrera: c[0] ? c[0].nombre_carrera : '',
+      carrera: nombreCarrera,
       grado: g[0] ? g[0].nombre_grado : '',
       seccion: s[0] ? s[0].nombre_seccion : ''
     });

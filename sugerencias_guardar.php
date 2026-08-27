@@ -44,7 +44,13 @@ if ($nombre === '' || $id_carrera <= 0 || $id_grado <= 0 || $id_seccion <= 0 || 
             $c = $conn->query("SELECT nombre_carrera FROM carreras WHERE id_carrera = $id_carrera");
             $g = $conn->query("SELECT nombre_grado FROM grados WHERE id_grado = $id_grado");
             $s = $conn->query("SELECT nombre_seccion FROM secciones WHERE id_seccion = $id_seccion");
-            if ($c && $r = $c->fetch_assoc()) $carreraNombre = $r['nombre_carrera'];
+            if ($c && $r = $c->fetch_assoc()) {
+                $carreraNombre = preg_replace('/^Bachillerato en\s*/i', '', $r['nombre_carrera']);
+                $carreraNombre = preg_replace('/^Bach\.\s*/i', '', $carreraNombre);
+                $carreraNombre = trim($carreraNombre);
+                if (preg_match('/maritimo portuario/i', $carreraNombre)) $carreraNombre = 'Marítimo Portuario';
+                if (strtolower($carreraNombre) === 'administración de empresas') $carreraNombre = 'Administración de Empresas';
+            }
             if ($g && $r = $g->fetch_assoc()) $gradoNombre = $r['nombre_grado'];
             if ($s && $r = $s->fetch_assoc()) $seccionNombre = $r['nombre_seccion'];
         }

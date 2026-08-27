@@ -49,12 +49,12 @@ CREATE TABLE IF NOT EXISTS sugerencias (
 -- ========================================================
 
 INSERT INTO carreras (id_carrera, nombre_carrera) VALUES
-(1, 'Bachillerato en Informática'),
-(2, 'Bachillerato en Robótica'),
+(1, 'Informática'),
+(2, 'Robótica'),
 (3, 'Administración Hotelera'),
-(4, 'Bachillerato en Ciencias y Humanidades'),
-(5, 'Bach. Marítimo portuario'),
-(6, 'Administración de empresas');
+(4, 'Ciencias y Humanidades'),
+(5, 'Marítimo Portuario'),
+(6, 'Administración de Empresas');
 
 INSERT INTO grados (nombre_grado, id_carrera) VALUES
 ('10 Grado', 1), ('11 Grado', 1), ('12 Grado', 1),
@@ -66,6 +66,15 @@ INSERT INTO grados (nombre_grado, id_carrera) VALUES
 
 INSERT INTO secciones (nombre_seccion) VALUES
 ('A'), ('B'), ('C');
+
+-- ========================================================
+-- ACTUALIZACIÓN PARA BD YA EXISTENTE (ejecutar si ya tienes datos)
+-- ========================================================
+-- UPDATE carreras SET nombre_carrera = 'Informática' WHERE id_carrera = 1;
+-- UPDATE carreras SET nombre_carrera = 'Robótica' WHERE id_carrera = 2;
+-- UPDATE carreras SET nombre_carrera = 'Ciencias y Humanidades' WHERE id_carrera = 4;
+-- UPDATE carreras SET nombre_carrera = 'Marítimo Portuario' WHERE id_carrera = 5;
+-- UPDATE carreras SET nombre_carrera = 'Administración de Empresas' WHERE id_carrera = 6;
 
 -- Consulta de prueba para ver las sugerencias guardadas
 -- SELECT * FROM sugerencias ORDER BY fecha_creacion DESC;
