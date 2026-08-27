@@ -38,6 +38,10 @@ module.exports = async function handler(req, res) {
     if (/maritimo portuario/i.test(nombreCarrera)) nombreCarrera = 'Marítimo Portuario';
     if (nombreCarrera.toLowerCase() === 'administración de empresas') nombreCarrera = 'Administración de Empresas';
 
+    let nombreSeccion = s[0] ? s[0].nombre_seccion : '';
+    const mapSec = { 'A': '1', 'B': '2', 'C': '3' };
+    if (mapSec[nombreSeccion]) nombreSeccion = mapSec[nombreSeccion];
+
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     return res.status(200).json({
       ok: true,
@@ -45,7 +49,7 @@ module.exports = async function handler(req, res) {
       nombre,
       carrera: nombreCarrera,
       grado: g[0] ? g[0].nombre_grado : '',
-      seccion: s[0] ? s[0].nombre_seccion : ''
+      seccion: nombreSeccion
     });
   } catch (e) {
     return res.status(500).json({ error: 'Error al guardar la sugerencia: ' + e.message });

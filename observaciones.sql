@@ -65,7 +65,7 @@ INSERT INTO grados (nombre_grado, id_carrera) VALUES
 ('10 Grado', 6), ('11 Grado', 6), ('12 Grado', 6);
 
 INSERT INTO secciones (nombre_seccion) VALUES
-('A'), ('B'), ('C');
+('1'), ('2'), ('3');
 
 -- ========================================================
 -- ACTUALIZACIÓN PARA BD YA EXISTENTE (ejecutar si ya tienes datos)
@@ -75,6 +75,9 @@ INSERT INTO secciones (nombre_seccion) VALUES
 -- UPDATE carreras SET nombre_carrera = 'Ciencias y Humanidades' WHERE id_carrera = 4;
 -- UPDATE carreras SET nombre_carrera = 'Marítimo Portuario' WHERE id_carrera = 5;
 -- UPDATE carreras SET nombre_carrera = 'Administración de Empresas' WHERE id_carrera = 6;
+-- UPDATE secciones SET nombre_seccion = '1' WHERE nombre_seccion = 'A';
+-- UPDATE secciones SET nombre_seccion = '2' WHERE nombre_seccion = 'B';
+-- UPDATE secciones SET nombre_seccion = '3' WHERE nombre_seccion = 'C';
 
 -- Consulta de prueba para ver las sugerencias guardadas
 -- SELECT * FROM sugerencias ORDER BY fecha_creacion DESC;

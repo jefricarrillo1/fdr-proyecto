@@ -62,8 +62,10 @@ switch ($action) {
 
     case 'secciones':
         $result = $conn->query("SELECT id_seccion, nombre_seccion FROM secciones ORDER BY nombre_seccion");
+        $map = ['A' => '1', 'B' => '2', 'C' => '3'];
         $data = [];
         while ($row = $result->fetch_assoc()) {
+            if (isset($map[$row['nombre_seccion']])) $row['nombre_seccion'] = $map[$row['nombre_seccion']];
             $data[] = $row;
         }
         echo json_encode($data);
@@ -78,6 +80,7 @@ switch ($action) {
                 INNER JOIN secciones sec ON sec.id_seccion = s.id_seccion
                 ORDER BY s.fecha_creacion DESC";
         $result = $conn->query($sql);
+        $mapSec = ['A' => '1', 'B' => '2', 'C' => '3'];
         $data = [];
         while ($row = $result->fetch_assoc()) {
             $n = preg_replace('/^Bachillerato en\s*/i', '', $row['nombre_carrera']);
@@ -86,6 +89,7 @@ switch ($action) {
             if (preg_match('/maritimo portuario/i', $n)) $n = 'Marítimo Portuario';
             if (strtolower($n) === 'administración de empresas') $n = 'Administración de Empresas';
             $row['nombre_carrera'] = $n;
+            if (isset($mapSec[$row['nombre_seccion']])) $row['nombre_seccion'] = $mapSec[$row['nombre_seccion']];
             $data[] = $row;
         }
         echo json_encode($data);

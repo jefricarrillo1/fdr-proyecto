@@ -52,7 +52,11 @@ if ($nombre === '' || $id_carrera <= 0 || $id_grado <= 0 || $id_seccion <= 0 || 
                 if (strtolower($carreraNombre) === 'administración de empresas') $carreraNombre = 'Administración de Empresas';
             }
             if ($g && $r = $g->fetch_assoc()) $gradoNombre = $r['nombre_grado'];
-            if ($s && $r = $s->fetch_assoc()) $seccionNombre = $r['nombre_seccion'];
+            if ($s && $r = $s->fetch_assoc()) {
+                $seccionNombre = $r['nombre_seccion'];
+                $mapSec = ['A' => '1', 'B' => '2', 'C' => '3'];
+                if (isset($mapSec[$seccionNombre])) $seccionNombre = $mapSec[$seccionNombre];
+            }
         }
 
         $conn->close();
