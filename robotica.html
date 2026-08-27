@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robótica - Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body { background-color: var(--darker); }
+        .page-header {
+            background: linear-gradient(180deg, #0E3B66 0%, #0A2A4A 100%);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 60px;
+        }
+        .seccion-detalle {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .texto-detalle h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .texto-detalle p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .texto-detalle strong { color: var(--text); }
+        .btn-volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px var(--shadow-glow);
+        }
+        .btn-volver:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px var(--shadow-glow);
+        }
+        .galeria-robotica {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 420px;
+            margin-left: auto;
+        }
+        .galeria-robotica img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            display: block;
+            box-shadow: 0 10px 25px var(--shadow);
+            transition: var(--transition);
+        }
+        .galeria-robotica img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px var(--shadow);
+            border-color: var(--gold);
+        }
+        .galeria-robotica img:nth-child(1),
+        .galeria-robotica img:nth-child(2),
+        .galeria-robotica img:nth-child(3),
+        .galeria-robotica img:nth-child(4) {
+            height: 140px;
+        }
+        .galeria-robotica img:nth-child(5) {
+            height: 160px;
+            grid-column: span 2;
+        }
+        @media (max-width: 768px) {
+            .seccion-detalle {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 16px 60px;
+            }
+            .texto-detalle h2 { font-size: 26px; }
+            .galeria-robotica {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .galeria-robotica img:nth-child(1),
+            .galeria-robotica img:nth-child(2),
+            .galeria-robotica img:nth-child(3),
+            .galeria-robotica img:nth-child(4) {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="IMAGENES/fdrLogo.jpg" alt="Logo FDR" class="logo-img">
+                <span class="logo-text">FDR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="tradiciones.html">Ubicación</a></li>
+                <li><a href="recreativas.html">Actividades Recreativas</a></li>
+                <li><a href="mision-vision.html">Misión y Visión</a></li>
+                <li><a href="observaciones.html">Sugerencias</a></li>
+                <li><a href="carreras.html" class="active">Carreras</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <span class="page-tag">Carreras</span>
+            <h1 class="page-title">
+                <span class="chinese">ROBÓTICA</span>
+                <span class="spanish" style="color: var(--gold-light);">Bachillerato Técnico Profesional</span>
+            </h1>
+            <p class="page-subtitle">Diseño, automatización y programación de sistemas inteligentes</p>
+            <div class="breadcrumb">
+                <a href="index.html" style="color: var(--white);">Inicio</a>
+                <span style="color: var(--white);">/</span>
+                <a href="carreras.html" style="color: var(--white);">Carreras</a>
+                <span style="color: var(--white);">/</span>
+                <span style="color: var(--white);">Robótica</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="seccion-detalle">
+        
+        <div class="texto-detalle">
+            <h2>Robótica</h2>
+            <p>
+                Esta especialidad capacita a los estudiantes en el diseño, ensamble y programación de dispositivos robóticos e industriales, integrando la mecánica, electrónica y programación.
+            </p>
+            <p>
+                <strong>Competencias Principales:</strong><br>
+                • Programación de microcontroladores y sensores.<br>
+                • Ensamblaje y mantenimiento de circuitos electrónicos.<br>
+                • Automatización de procesos mediante controladores lógicos (PLC).<br>
+                • Diseño asistido por computadora (CAD) para piezas robóticas.
+            </p>
+            <p>
+                <strong>Campo Laboral:</strong><br>
+                Industrias automatizadas, plantas de ensamblaje, soporte de sistemas mecatrónicos, mantenimiento electromecánico y desarrollo de proyectos de innovación tecnológica.
+            </p>
+
+            <a href="carreras.html" class="btn-volver">← Volver a Carreras</a>
+        </div>
+
+        <div class="galeria-robotica">
+            <img src="IMAGENES/robo1.jpeg" alt="Robótica Foto 1" onerror="this.src='IMAGENES/fdr2.jpg'">
+            <img src="IMAGENES/robo2.jpeg" alt="Robótica Foto 2" onerror="this.src='IMAGENES/fdr2.jpg'">
+            <img src="IMAGENES/robo3.jpeg" alt="Robótica Foto 3" onerror="this.src='IMAGENES/fdr2.jpg'">
+            <img src="IMAGENES/robo4.jpeg" alt="Robótica Foto 4" onerror="this.src='IMAGENES/fdr2.jpg'">
+            <img src="IMAGENES/robo5.jpeg" alt="Robótica Foto 5" onerror="this.src='IMAGENES/fdr2.jpg'">
+        </div>
+
+    </main>
+
+    <footer class="footer" style="padding: 40px 24px; background: #0E3B66; border-top: 3px solid var(--gold); text-align: center;">
+        <div class="container">
+            <p style="font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;">Franklin Delano Roosevelt</p>
+            <p style="color: #C7D3E0; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PROYECTO DE DISEÑO WEB</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
